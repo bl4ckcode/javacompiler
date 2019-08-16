@@ -1,0 +1,14 @@
+GER da Linguagem L:
+
+S -> D{D} main C{C} end
+D -> T id[= constantes] {, id[= (constantes | (false | true))]}; | const id = (constantes | (false | true));
+C -> id = exp; | while AW | if A then W [else W] | readln"("id")"; | write"("E")"; | writeln"("E'\n'")"; | ;
+T -> integer | boolean | byte | string
+A -> "("exp")"
+W -> C | begin {C} end
+E -> exp{,exp}
+exp -> expS[ (< | > | == | >= | <= | !=) expS]
+expS -> [+|-]P{(+|-|or)P)
+P -> P1{(* | / | and)P1}
+P1 -> [not]P2
+P2 -> id | constantes | true | false | "("exp")"
